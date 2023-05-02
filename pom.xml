@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>study.practice.started</groupId>
+    <artifactId>maven-submodule</artifactId>
+    <packaging>pom</packaging>
+    <name>maven-submodule</name>
+    <description>Practice Maven Submodule</description>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>spring-xml-context-web-mybatis</module>
+        <module>spring-java-context-api-jpa</module>
+    </modules>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <skipTests>true</skipTests>
+        <org.projectlombok-version>1.18.26</org.projectlombok-version>
+        <org.slf4j-version>2.0.7</org.slf4j-version>
+        <org.springframework-version>5.3.27</org.springframework-version>
+        <org.springframework.data-version>2022.0.5</org.springframework.data-version>
+        <javax.servlet-version>4.0.1</javax.servlet-version>
+        <com.fasterxml.jackson.core-version>2.14.2</com.fasterxml.jackson.core-version>
+        <org.apache.maven.plugins-version>3.11.0</org.apache.maven.plugins-version>
+        <org.apache.maven.plugins-war-version>3.3.2</org.apache.maven.plugins-war-version>
+        <javax.servlet.jsp-version>2.3.3</javax.servlet.jsp-version>
+        <org.mybatis-version>3.5.13</org.mybatis-version>
+        <org.mybatis-spring-version>3.0.1</org.mybatis-spring-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-framework-bom -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${org.springframework-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-bom</artifactId>
+                <version>${org.springframework.data-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet-version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${com.fasterxml.jackson.core-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${org.projectlombok-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j-version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${org.apache.maven.plugins-version}</version>
+<!--                    <configuration>-->
+<!--                        <source>1.8</source>-->
+<!--                        <target>1.8</target>-->
+<!--                    </configuration>-->
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${org.apache.maven.plugins-war-version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

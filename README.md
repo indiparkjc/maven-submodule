@@ -1,1 +1,1 @@
-# spring-practice
+# Spring 설정
